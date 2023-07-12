@@ -1,0 +1,23 @@
+T(n) = a*T(n/b) + f(n)
+case3: T(n) = theta(f(n))
+	比較完f(n)與a*T(n/b)的成長級數後，
+	需證明由a*T(n/b)所產生之副產物a*f(n/b) = little-oh(f(n))
+	也就是a*f(n/b) <= c*f(n)且c<1		#a*f(n/b)成長級數小於等於f(n)
+
+猜想:
+	if:
+		a*f(n/b) <= c*f(n), cannot find c<1(const)
+	then:
+		a*f(n/b) = omega(c*f(n))
+	assume1:
+		a*f(n/b) = theta(c*f(n))
+	according:
+		case2: a*T(n/b) = theta(f(n))
+	conclusion:
+		T(n) = theta(a*f(n/b)*(log n))
+	assume2:
+		a*f(n/b) = little-omega(c*f(n))
+	according:
+		case1: a*T(n/b) = little-omega(f(n))
+	then:
+		T(n) = theta(a*f(n/b))
